@@ -21,7 +21,7 @@ if (is_admin()) {
         'api_url' => 'https://api.github.com/repos/tommusrhodus/ebor-cpt', // the github API url of your github repo
         'raw_url' => 'https://raw.github.com/tommusrhodus/ebor-cpt/master', // the github raw url of your github repo
         'github_url' => 'https://github.com/tommusrhodus/ebor-cpt', // the github url of your github repo
-        'zip_url' => 'https://github.com/tommusrhodus/ebor-cpt/zipball/master', // the zip url of the github repo
+        'zip_url' => 'https://github.com/tommusrhodus/ebor-cpt/archive/master.zip', // the zip url of the github repo
         'sslverify' => true,
         'requires' => '3.6', // which version of WordPress does your plugin require?
         'tested' => '3.6', // which version of WordPress is your plugin tested up to?
