@@ -17,7 +17,7 @@ include_once('updater.php');
 if (is_admin()) {
     $config = array(
         'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
-        'proper_folder_name' => 'ebor-cpt', // this is the name of the folder your plugin lives in
+        'proper_folder_name' => 'ebor-cpt-master', // this is the name of the folder your plugin lives in
         'api_url' => 'https://api.github.com/repos/tommusrhodus/ebor-cpt', // the github API url of your github repo
         'raw_url' => 'https://raw.github.com/tommusrhodus/ebor-cpt/master', // the github raw url of your github repo
         'github_url' => 'https://github.com/tommusrhodus/ebor-cpt', // the github url of your github repo
