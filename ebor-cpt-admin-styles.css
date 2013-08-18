@@ -1,0 +1,8 @@
+#icon-ebor-cpt {
+    background: transparent url( 'img/logo.png' ) no-repeat;
+    background-size: 90%;
+}
+
+.toplevel_page_ebor-cpt-index hr {
+	height: 1px; border: none; max-width: 60%; background: #95a5a6; margin: 30px 0;
+}
