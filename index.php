@@ -9,26 +9,33 @@ Author: TommusRhodus
 Author URI: http://www.madeinebor.com
 */	
 
+add_action( 'init', 'github_plugin_updater_test_init' );
+function github_plugin_updater_test_init() {
 
-//PLUGIN UPDATER
-include_once('updater.php');
+	include_once 'updater.php';
 
-//UPDATER SETTINGS
-if (is_admin()) {
-    $config = array(
-        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
-        'proper_folder_name' => 'ebor-cpt', // this is the name of the folder your plugin lives in
-        'api_url' => 'https://api.github.com/repos/tommusrhodus/ebor-cpt', // the github API url of your github repo
-        'raw_url' => 'https://raw.github.com/tommusrhodus/ebor-cpt/master', // the github raw url of your github repo
-        'github_url' => 'https://github.com/tommusrhodus/ebor-cpt', // the github url of your github repo
-        'zip_url' => 'https://github.com/tommusrhodus/ebor-cpt/archive/master.zip', // the zip url of the github repo
-        'sslverify' => true,
-        'requires' => '3.6', // which version of WordPress does your plugin require?
-        'tested' => '3.6', // which version of WordPress is your plugin tested up to?
-        'readme' => 'README.md', // which file to use as the readme for the version number
-        'access_token' => '', // Access private repositories by authorizing under Appearance > Github Updates when this example plugin is installed
-    );
-    new WP_GitHub_Updater($config);
+	define( 'WP_GITHUB_FORCE_UPDATE', true );
+
+	if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+
+		$config = array(
+			'slug' => plugin_basename( __FILE__ ),
+			'proper_folder_name' => 'ebor-cpt',
+			'api_url' => 'https://api.github.com/repos/tommusrhodus/ebor-cpt',
+			'raw_url' => 'https://raw.github.com/tommusrhodus/ebor-cpt/master',
+			'github_url' => 'https://github.com/tommusrhodus/ebor-cpt',
+			'zip_url' => 'https://github.com/tommusrhodus/ebor-cpt/archive/master.zip',
+			'sslverify' => true,
+			'requires' => '3.0',
+			'tested' => '3.3',
+			'readme' => 'README.md',
+			'access_token' => '',
+		);
+
+		new WP_GitHub_Updater( $config );
+
+	}
+
 }
 
 //enqueue admin styles
