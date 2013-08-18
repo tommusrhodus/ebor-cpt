@@ -4,7 +4,7 @@
 Plugin Name: Ebor Custom Post Types
 Plugin URI: http://www.madeinebor.com
 Description: Custom Post Types & Options for your theme.
-Version: 1.0.0
+Version: 1.0.1
 Author: TommusRhodus
 Author URI: http://www.madeinebor.com
 */	
