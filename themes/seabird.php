@@ -1,5 +1,9 @@
 <?php 
 
+add_action( 'init', 'register_portfolio' );
+add_action( 'init', 'register_team' );
+add_action( 'init', 'register_client' );
+
 // Render the Plugin options form
 function ebor_cpt_render_form() { ?>
 	

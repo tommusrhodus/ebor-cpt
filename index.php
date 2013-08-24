@@ -19,11 +19,17 @@ add_action('admin_print_styles', 'ebor_cpt_admin_style', 90);
 register_uninstall_hook(__FILE__, 'ebor_cpt_delete_plugin_options');
 add_action('admin_init', 'ebor_cpt_init' );
 add_action('admin_menu', 'ebor_cpt_add_options_page');
-add_action('init','ebor_register_items');
+//RUN ON THEME ACTIVATION
+register_activation_hook( __FILE__, 'ebor_cpt_activation' );
 
 // Delete options table entries ONLY when plugin deactivated AND deleted
 function ebor_cpt_delete_plugin_options() {
 	delete_option('ebor_cpt_display_options');
+}
+
+// Flush rewrite rules on activation
+function ebor_cpt_activation() {
+	flush_rewrite_rules(true);
 }
 
 // Init plugin options to white list our options
@@ -61,23 +67,6 @@ function ebor_cpt_validate_display_options($input) {
 	}
 	}
 	return $input;
-}
-
-//CONDITIONALLY REGISTER POST TYPES
-function ebor_register_items() {
-	if( get_option('ebor_cpt_display_options') ){
-		$displays = get_option('ebor_cpt_display_options');
-		if( isset($displays['portfolio']) ){
-			register_portfolio();
-			create_portfolio_taxonomies();
-		}
-		if( isset($displays['team']) ){
-			register_team();
-		}
-		if( isset($displays['client']) ){
-			register_client();
-		}
-	}
 }
 
 function register_portfolio() {

@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+add_action( 'init', 'register_portfolio' );
+add_action( 'init', 'register_team' );
 
 // Render the Plugin options form
 function ebor_cpt_render_form() { ?>
@@ -23,23 +26,15 @@ function ebor_cpt_render_form() { ?>
 									<tr valign="top">
 										<th scope="row">Register Post Types</th>
 										<td>
-
-											<label><b>Use Portfolio Post Type?</b><br />
-											<input name="ebor_cpt_display_options[portfolio]" type="checkbox" value="1" <?php if (isset($displays['portfolio'])) { checked('1', $displays['portfolio']); } ?> />
-											</label><br /><br />
 											
-											<label><b>Enter the URL slug you want to use for this post type. DO-NOT: use numbers, spaces, capital letters or special characters.</b><br />
+											<label><b>Enter the URL slug you want to use for the portfolio post type. DO-NOT: use numbers, spaces, capital letters or special characters.</b><br />
 											<input type="text" size="30" name="ebor_cpt_display_options[portfolio_slug]" value="<?php echo $displays['portfolio_slug']; ?>" placeholder="portfolio" />
 											 <br />e.g Entering 'portfolio' will result in www.website.com/portfolio becoming the URL to your portfolio.<br />
 											 <b>If you change this setting, be sure to visit <a href="options-permalink.php">Your Permalink Settings</a> & click the 'save changes' button to refresh & re-write your permalinks.</b></label>
 											 
 											 <hr />
-											 
-					 						<label><b>Use Team Post Type?</b><br />
-					 						<input name="ebor_cpt_display_options[team]" type="checkbox" value="1" <?php if (isset($displays['team'])) { checked('1', $displays['team']); } ?> />
-					 						</label><br /><br />
 					 						
-					 						<label><b>Enter the URL slug you want to use for this post type. DO-NOT: use numbers, spaces, capital letters or special characters.</b><br />
+					 						<label><b>Enter the URL slug you want to use for the team post type. DO-NOT: use numbers, spaces, capital letters or special characters.</b><br />
 					 						<input type="text" size="30" name="ebor_cpt_display_options[team_slug]" value="<?php echo $displays['team_slug']; ?>" placeholder="team" />
 					 						 <br />e.g Entering 'team' will result in www.website.com/team becoming the URL to your team.<br />
 					 						 <b>If you change this setting, be sure to visit <a href="options-permalink.php">Your Permalink Settings</a> & click the 'save changes' button to refresh & re-write your permalinks.</b></label>
