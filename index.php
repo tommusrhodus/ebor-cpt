@@ -4,7 +4,7 @@
 Plugin Name: Ebor Custom Post Types
 Plugin URI: http://www.madeinebor.com
 Description: Custom Post Types & Options for your theme.
-Version: 1.2
+Version: 1.3
 Author: TommusRhodus
 Author URI: http://www.madeinebor.com
 */	
@@ -50,6 +50,14 @@ switch( wp_get_theme() ) {
 	
 	case('Seabird') :
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
+	break;
+	
+	case('Kyte') :
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/kyte.php' );
+	break;
+	
+	case('Anchor') :
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/anchor.php' );
 	break;
 		
 	default :
