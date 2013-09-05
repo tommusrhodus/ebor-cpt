@@ -52,6 +52,10 @@ switch( wp_get_theme() ) {
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
 	break;
 	
+	case('Wiretree') :
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
+	break;
+	
 	case('Kyte') :
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/kyte.php' );
 	break;
