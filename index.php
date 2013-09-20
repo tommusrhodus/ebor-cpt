@@ -89,7 +89,7 @@ if( $displays['portfolio_slug'] ){ $slug = $displays['portfolio_slug']; } else {
 
 //HERE'S AN ARRAY OF LABELS FOR PORTFOLIOS
     $labels = array( 
-        'name' => __( 'Portfolios', 'ebor' ),
+        'name' => __( 'Portfolio', 'ebor' ),
         'singular_name' => __( 'Portfolio', 'ebor' ),
         'add_new' => __( 'Add New', 'ebor' ),
         'add_new_item' => __( 'Add New Portfolio', 'ebor' ),
@@ -100,7 +100,7 @@ if( $displays['portfolio_slug'] ){ $slug = $displays['portfolio_slug']; } else {
         'not_found' => __( 'No portfolios found', 'ebor' ),
         'not_found_in_trash' => __( 'No portfolios found in Trash', 'ebor' ),
         'parent_item_colon' => __( 'Parent Portfolio:', 'ebor' ),
-        'menu_name' => __( 'Portfolios', 'ebor' ),
+        'menu_name' => __( 'Portfolio', 'ebor' ),
     );
 
 //AND HERE'S AN ARRAY OF ARGUMENTS TO DEFINE PORTFOLIOS FUNCTIONALITY
