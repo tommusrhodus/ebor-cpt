@@ -42,31 +42,37 @@ function ebor_cpt_add_options_page() {
 	add_utility_page('Ebor CPT Options Page', 'Ebor CPT', 'manage_options', __FILE__, 'ebor_cpt_render_form');
 }
 
-switch( wp_get_theme() ) {
+$theme_name = wp_get_theme();
 
-	case('ShadowBox') :
+	if( $theme_name == 'ShadowBox' || $theme_name->parent() == 'ShadowBox' ) {
+	
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/shadowbox.php' );
-	break;
-	
-	case('Seabird') :
-		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
-	break;
-	
-	case('Wiretree') :
-		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
-	break;
-	
-	case('Kyte') :
-		require_once( plugin_dir_path( __FILE__ ) .'/themes/kyte.php' );
-	break;
-	
-	case('Anchor') :
-		require_once( plugin_dir_path( __FILE__ ) .'/themes/anchor.php' );
-	break;
 		
-	default :
+	} elseif( $theme_name == 'Seabird' || $theme_name->parent() == 'Seabird' ) {
+	
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
+		
+	} elseif( $theme_name == 'Wiretree' || $theme_name->parent() == 'Wiretree' ) {
+	
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/seabird.php' );
+		
+	} elseif( $theme_name == 'Kyte' || $theme_name->parent() == 'Kyte' ) {
+	
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/kyte.php' );
+	
+	} elseif( $theme_name == 'Anchor' || $theme_name->parent() == 'Anchor' ) {
+	
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/anchor.php' );
+		
+	} elseif( $theme_name == 'Other' || $theme_name->parent() == 'Other' ) {
+	
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/anchor.php' );
+	
+	} else {
+	
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/default.php' );
-}
+		
+	}
 
 //VALIDATE POST TYPE INPUTS
 function ebor_cpt_validate_display_options($input) {
