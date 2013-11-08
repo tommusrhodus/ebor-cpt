@@ -66,7 +66,7 @@ $theme_name = wp_get_theme();
 		
 	} elseif( $theme_name == 'Other' || $theme_name->parent() == 'Other' ) {
 	
-		require_once( plugin_dir_path( __FILE__ ) .'/themes/anchor.php' );
+		require_once( plugin_dir_path( __FILE__ ) .'/themes/other.php' );
 	
 	} else {
 	
