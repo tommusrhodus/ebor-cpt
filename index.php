@@ -64,7 +64,7 @@ $theme_name = wp_get_theme();
 	
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/anchor.php' );
 		
-	} elseif( $theme_name == 'Other' || $theme_name->parent() == 'Other' ) {
+	} elseif( $theme_name == 'Other' || $theme_name->parent() == 'Other' || $theme_name == 'Tides' || $theme_name->parent() == 'Tides' ) {
 	
 		require_once( plugin_dir_path( __FILE__ ) .'/themes/other.php' );
 	
