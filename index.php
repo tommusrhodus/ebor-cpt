@@ -39,7 +39,7 @@ function ebor_cpt_init(){
 
 // Add menu page
 function ebor_cpt_add_options_page() {
-	add_utility_page('Ebor CPT Options Page', 'Ebor CPT', 'manage_options', __FILE__, 'ebor_cpt_render_form');
+	add_menu_page('Ebor CPT Options Page', 'Ebor CPT', 'manage_options', 'ebor_cpt_options', 'ebor_cpt_render_form');
 }
 
 $theme_name = wp_get_theme();
