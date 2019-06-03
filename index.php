@@ -9,6 +9,57 @@ Author: TommusRhodus
 Author URI: http://www.madeinebor.com
 */	
 
+//Button [button link='google.com' size='large' color='blue' target='blank']Link Text[/button]
+function tides_button( $atts, $content = null ) {
+	extract(shortcode_atts(array(
+		'link' => '',
+		'size' => '',
+		'color' => 'white',
+		'target' => '',
+		'glossy' => ''
+	), $atts));
+	if($target == 'blank') $target = 'target="_blank"';
+ 	return '<a href="' . esc_url($link) . '" '.$target.' class="button '.$size.' '.$glossy.' '.$color.'">' . $content . '</a>';
+}
+add_shortcode('button', 'tides_button');
+
+function tides_alert( $atts, $content = null ) {
+	extract(shortcode_atts(array(
+		'title' => '',
+		'type' => ''
+	), $atts));
+	return '<div class="alert '. $type .'"><strong>'. $title .'</strong> '. $content .'<i class="fa fa-times"></i></div>';
+}
+add_shortcode('alert', 'tides_alert');
+
+function tides_accordiongroup( $atts, $content){
+	$GLOBALS['accordion_count'] = 0;
+	do_shortcode( $content );
+	
+	if( is_array( $GLOBALS['accordions'] ) ){
+		foreach( $GLOBALS['accordions'] as $accordion ){
+			$accordions[] = '<dt class=""><a href="#">'.$accordion['title'].'</a></dt><dd><h4 class="margin-bottom-10">'.$accordion['title'].'</h4>'. wpautop($accordion['content']).'</dd>';
+		}
+		$return = '<dl class="accordion">'.implode( "\n", $accordions ).'</dl>';
+	}
+	return $return;
+}
+add_shortcode( 'accordiongroup', 'tides_accordiongroup' );
+
+function tides_accordion( $atts, $content ){
+	extract(shortcode_atts(array(
+		'title' => '%d'
+	), $atts));
+
+	$x = $GLOBALS['accordion_count'];
+	$GLOBALS['accordions'][$x] = array(
+		'title' => sprintf( $title, $GLOBALS['accordion_count'] ),
+		'content' =>  do_shortcode($content)
+	);
+	$GLOBALS['accordion_count']++;
+}
+add_shortcode( 'accordion', 'tides_accordion' );
+
 //enqueue admin styles
 function ebor_cpt_admin_style() {
 	wp_enqueue_style( 'ebor-cpt-admin-styles', plugins_url( '/ebor-cpt-admin-styles.css' , __FILE__ ) );
