@@ -11,7 +11,6 @@ function ebor_cpt_render_form() { ?>
 	<div class="wrap">
 	
 		<!-- Display Plugin Icon, Header, and Description -->
-		<?php screen_icon('ebor-cpt'); ?>
 		<h2><?php _e('Ebor CPT Settings','ebor'); ?></h2>
 		<?php echo '<p>' . __('Welcome to <b>Ebor Custom Post Types</b>, our custom post type plugin letting you take your content everywhere.','ebor') . '</p>'; ?>
 		<b>When you make any changes in this plugin, be sure to visit <a href="options-permalink.php">Your Permalink Settings</a> & click the 'save changes' button to refresh & re-write your permalinks, otherwise your changes will not take effect properly.</b>
